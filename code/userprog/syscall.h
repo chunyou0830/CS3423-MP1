@@ -65,7 +65,7 @@ void MSG(char *msg);
 
 /* Address space control operations: Exit, Exec, Execv, and Join */
 
-void PrintInt(char *string, int length);
+void PrintInt(int num);
 
 /* This user program is done (status = 0 means exited normally). */
 void Exit(int status);	

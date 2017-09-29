@@ -34,6 +34,7 @@
 #define SC_ExecV	13
 #define SC_ThreadExit   14
 #define SC_ThreadJoin   15
+#define SC_PrintInt		16
 #define SC_Add		42
 #define SC_MSG		100
 
@@ -63,6 +64,8 @@ int Add(int op1, int op2);
 void MSG(char *msg);
 
 /* Address space control operations: Exit, Exec, Execv, and Join */
+
+void String(char *string, int length);
 
 /* This user program is done (status = 0 means exited normally). */
 void Exit(int status);	

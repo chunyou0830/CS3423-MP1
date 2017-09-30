@@ -133,7 +133,7 @@ ExceptionHandler(ExceptionType which)
         			val /= 10;
         		}
 
-        		for (int j=0; j<=i-j; j++){
+        		for (int j=0; j<i-j; j++){
         			char temp = cha[j];
         			cha[j] = cha[i-j-1];
         			cha[i-j-1] = temp;

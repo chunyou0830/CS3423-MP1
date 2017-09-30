@@ -113,7 +113,7 @@ ExceptionHandler(ExceptionType which)
 			ASSERTNOTREACHED();
             break;
         case SC_PrintInt:
-		int i=0;
+			int i=0;
         	char *cha;
         	val = kernel->machine->ReadRegister(4);
 
@@ -124,18 +124,17 @@ ExceptionHandler(ExceptionType which)
         	else{
         		while(val > 0){
         			cha[i++] = val%10 + '0';
-        			val /=10;
+        			val /= 10;
         		}
 
         		for (int j=0; j<=i-j; j++){
         			char temp = cha[j];
         			cha[j] = cha[i-j-1];
         			cha[i-j-1] = temp;
-
         		}
         		cha[i++] = '\n';
+				kernel->SynchConsoleOutput->PutString(cha, i);
         	}
-			kernel->SynchConsoleOutput->PutString(cha, i);
 	        kernel->machine->WriteRegister(PrevPCReg, kernel->machine->ReadRegister(PCReg));
 			kernel->machine->WriteRegister(PCReg, kernel->machine->ReadRegister(PCReg) + 4);
 			kernel->machine->WriteRegister(NextPCReg, kernel->machine->ReadRegister(PCReg)+4);
@@ -149,7 +148,7 @@ ExceptionHandler(ExceptionType which)
 			kernel->currentThread->Finish();
             break;
       	default:
-			//cerr << "Unexpected system call " << type << "\n";
+			cerr << "Unexpected system call " << type << "\n";
 			break;
 		}
 		break;

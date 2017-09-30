@@ -34,5 +34,40 @@ int SysCreate(char *filename)
 	return kernel->interrupt->CreateFile(filename);
 }
 
+int SysOpen(char *filename)
+{
+	// return value
+	// return ID
+	// return -1 if failed
+	OpenFile *file;
+	file = kernel->fileSystem->Open(filename);
+	int position = -1;
 
+	for(int i=0; i<20; i++){
+		if(kernel->fileSystem->fileDescriptorTable[i] = NULL){
+			position = i;
+			break;
+		}	
+	}
+	if(!(position<0 && position>=20)){
+		kernel->fileSystem->fileDescriptorTable[i] = file;
+		return position;
+	}
+	else{
+		return -1;
+	}
+	
+}
+
+int SysWrite(char *buf, int len, int id){
+	return kernel->fileSystem->Write(buf,len,id);
+}
+
+int SysRead(char *buf, int len, int id){
+	return kernel->fileSystem->Read(buf,len,id);
+}
+
+int Sysclose(int id){
+	return kernel->fileSystem->Close(id);
+}
 #endif /* ! __USERPROG_KSYSCALL_H__ */

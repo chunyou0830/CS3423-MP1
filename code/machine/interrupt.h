@@ -96,6 +96,7 @@ class Interrupt {
 
     void PrintInt(int number);
 	int CreateFile(char *filename);
+    int OpenFile(char *filename);
  
     void YieldOnReturn();	// cause a context switch on return 
 				// from an interrupt handler

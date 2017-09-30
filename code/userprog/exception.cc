@@ -113,7 +113,7 @@ ExceptionHandler(ExceptionType which)
 			ASSERTNOTREACHED();
             break;
         case SC_PrintInt:
-        	int i=0;
+		int i=0;
         	char *cha;
         	val = kernel->machine->ReadRegister(4);
 
@@ -149,7 +149,7 @@ ExceptionHandler(ExceptionType which)
 			kernel->currentThread->Finish();
             break;
       	default:
-			cerr << "Unexpected system call " << type << "\n";
+			//cerr << "Unexpected system call " << type << "\n";
 			break;
 		}
 		break;

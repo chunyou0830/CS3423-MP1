@@ -113,13 +113,18 @@ ExceptionHandler(ExceptionType which)
 			ASSERTNOTREACHED();
             break;
         case SC_PrintInt:
-			int i=0;
-        	char *cha;
+			{
+		int i=0;
+        	char *cha = new char[100];
         	val = kernel->machine->ReadRegister(4);
-
+		
         	if (val<10){
+			char ch;
+			ch = val + '0';
         		cha[i++] = val + '0';
         		cha[i++] = '\n';
+			kernel->synchConsoleOut->PutChar(ch);
+			kernel->synchConsoleOut->PutChar('\n');
         	}
         	else{
         		while(val > 0){
@@ -133,8 +138,10 @@ ExceptionHandler(ExceptionType which)
         			cha[i-j-1] = temp;
         		}
         		cha[i++] = '\n';
-				kernel->SynchConsoleOutput->PutString(cha, i);
+				kernel->synchConsoleOut->PutString(cha, i);
         	}
+		}
+		//cerr << "Test point";
 	        kernel->machine->WriteRegister(PrevPCReg, kernel->machine->ReadRegister(PCReg));
 			kernel->machine->WriteRegister(PCReg, kernel->machine->ReadRegister(PCReg) + 4);
 			kernel->machine->WriteRegister(NextPCReg, kernel->machine->ReadRegister(PCReg)+4);

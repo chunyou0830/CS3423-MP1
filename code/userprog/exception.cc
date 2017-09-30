@@ -123,8 +123,9 @@ ExceptionHandler(ExceptionType which)
 			ch = val + '0';
         		cha[i++] = val + '0';
         		cha[i++] = '\n';
-			kernel->synchConsoleOut->PutChar(ch);
-			kernel->synchConsoleOut->PutChar('\n');
+			kernel->synchConsoleOut->PutString(cha, i);
+			//kernel->synchConsoleOut->PutChar(ch);
+			//kernel->synchConsoleOut->PutChar('\n');
         	}
         	else{
         		while(val > 0){

@@ -52,6 +52,36 @@ class FileSystem {
 	return TRUE; 
 	}
 
+	int Write(char *buf, int len, int id){
+		Openfile* of;
+		if(fileDescriptorTable[id]==NULL||id<0||id>=20){
+			return -1;
+		}
+		of = fileDescriptorTable[id];
+		int result;
+		result = of->Write(buf,len);
+	}
+
+	int Read(char *buf, int len, int id){
+		Openfile* of;
+		if(fileDescriptorTable[id]==NULL||id<0||id>=20){
+			return -1;
+		}
+		of = fileDescriptorTable[id];
+		int result;
+		result = of->Read(buf,len);
+	}
+
+	int Close(int id){
+		if(fileDescriptorTable[id]==NULL||id<0||id>=20){
+			return 0;
+		}
+		fileDescriptorTable[id]==NULL;
+		return 1;
+	}
+
+
+
     OpenFile* Open(char *name) {
 	  int fileDescriptor = OpenForReadWrite(name, FALSE);
 

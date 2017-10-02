@@ -308,8 +308,4 @@ int Kernel::CreateFile(char *filename)
 	return fileSystem->Create(filename);
 }
 
-OpenFile* Kernel::OpenFile(char *filename)
-{
-    return fileSystem->Open(filename);
-}
 

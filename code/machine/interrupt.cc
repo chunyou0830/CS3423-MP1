@@ -245,7 +245,7 @@ Interrupt::CreateFile(char *filename)
     return kernel->CreateFile(filename);
 }
 
-int
+OpenFile*
 Interrupt::OpenFile(char *filename)
 {
     return kernel->OpenFile(filename);

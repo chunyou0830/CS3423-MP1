@@ -53,7 +53,7 @@ class FileSystem {
 	}
 
 	int Write(char *buf, int len, int id){
-		Openfile* of;
+		OpenFile* of;
 		if(fileDescriptorTable[id]==NULL||id<0||id>=20){
 			return -1;
 		}
@@ -63,7 +63,7 @@ class FileSystem {
 	}
 
 	int Read(char *buf, int len, int id){
-		Openfile* of;
+		OpenFile* of;
 		if(fileDescriptorTable[id]==NULL||id<0||id>=20){
 			return -1;
 		}

@@ -1,2 +1,11 @@
 code/test/
+code/test/add
+code/test/fileIO_test1
+code/test/fileIO_test2
+code/test/consoleIO_test1
+code/test/consoleIO_test2
+code/test/halt
+code/test
+code/test/*
+code/build.linux
 code/build.linux/

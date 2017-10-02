@@ -45,7 +45,7 @@ class Kernel {
 	Thread* getThread(int threadID){return t[threadID];}    
 	
 	int CreateFile(char* filename); // fileSystem call
-    int OpenFile(char* filename);
+    OpenFile* Openfile(char* filename);
 
 // These are public for notational convenience; really, 
 // they're global variables used everywhere.

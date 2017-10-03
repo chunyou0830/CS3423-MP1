@@ -44,12 +44,12 @@ int SysOpen(char *filename)
 	int position = -1;
 	int i;	
 	for(i=0; i<20; i++){
-		if(kernel->fileSystem->fileDescriptorTable[i] = NULL){
+		if(kernel->fileSystem->fileDescriptorTable[i] == NULL){
 			position = i;
 			break;
 		}	
 	}
-	if(!(position<0 && position>=20)){
+	if(position>=0 && position<20){
 		kernel->fileSystem->fileDescriptorTable[i] = file;
 		return position+1;
 	}

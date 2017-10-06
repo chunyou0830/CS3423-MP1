@@ -60,6 +60,7 @@ class FileSystem {
 		of = fileDescriptorTable[id-1];
 		int result;
 		result = of->Write(buf,len);
+		return result;
 	}
 
 	int Read(char *buf, int len, int id){
@@ -70,6 +71,7 @@ class FileSystem {
 		of = fileDescriptorTable[id-1];
 		int result;
 		result = of->Read(buf,len);
+		return result;
 	}
 
 	int Close(int id){

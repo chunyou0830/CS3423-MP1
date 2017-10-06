@@ -122,7 +122,7 @@ ExceptionHandler(ExceptionType which)
 		        int val_ch = kernel->machine->ReadRegister(4);
             		int val_len = kernel->machine->ReadRegister(5);
             		int val_fid = kernel->machine->ReadRegister(6);
-			char *ch = &(kernel->machine->mainMemory[val]);
+			char *ch = &(kernel->machine->mainMemory[val_ch]);
             		status = SysRead(ch, val_len, val_fid);
 			kernel->machine->WriteRegister(2, (int) status);
 			}
